@@ -6,33 +6,41 @@ function initClickListners(event) {
 
         $(this).addClass(playerValue)
         $(this).html(playerValue)
+        $("#opponentChoice").addClass('unclickable')
 
-        playGame()
+        if (!WinCheck()) {
+            GetTurn()
+        }
 
     })
 
     $("#opponentChoice input").on("change", function() {
         var player2 = $("input[name='radio']:checked", "#opponentChoice").val()
         $(".item").removeClass("unclickable")
-        $("#opponentChoice").addClass('unclickable')
 
         if (player2 == "Human"){
             $("#player2").html("Player 2")
         }
+        else{
+            $("#player2").html("Computer")
+        }
     })
 
     $("#resetButton").click(function(event) {
+
         $("#opponentChoice").removeClass('unclickable')
         document.getElementById("opponentChoice").reset()
-        $("#playerOne, #gameResult, #resultMessage").html("")
-        $("#gameInfo, #gameBoard, #resultMessage").addClass("hideElement")
-        $(".item").removeClass("X O gray unclickable")
+        $("#playerOne, #gameResult").html("")
+        $("#gameInfo, #gameBoard").addClass("hideElement")
+        $(".item").removeClass("X O empty")
+        $(".item").addClass("unclickable")
         $(".item").html("X/O")
+        $("#player2").html("Pick your opponent")
         playerValue = 'X'
     })
 }
 
-function checkWhoseTurn() {
+function GetTurn() {
 
     var xCount = $('#gameBoard .X').length
     var oCount = $('#gameBoard .O').length
@@ -44,8 +52,8 @@ function checkWhoseTurn() {
 
         var unfilledCells = document.querySelectorAll("div.item:not(.X):not(.O)")
         $(unfilledCells).removeClass('unclickable')
-        $("#player2").removeClass('yellow blackText')
-        $("#player1").addClass('yellow blackText')
+        $("#player2").removeClass('green black')
+        $("#player1").addClass('green black')
         playerValue = 'X'
 
     }
@@ -56,14 +64,11 @@ function checkWhoseTurn() {
         Player2Turn()
 
     }
-
-    return
 }
 
 function Player2Turn() {
 
     var player2 = $("#player2").text()
-    console.log("herehere"+player2)
     if(player2 == 'Computer'){
 
         var allItems = document.querySelectorAll("div.item")
@@ -72,8 +77,8 @@ function Player2Turn() {
 
     }
 
-    $("#player1").removeClass('yellow blackText')
-    $("#player2").addClass('yellow blackText')
+    $("#player1").removeClass('green black')
+    $("#player2").addClass('green black')
 
 }
 
@@ -83,18 +88,13 @@ function ComputerPlay() {
     var randomItem = notBlueOrRed[Math.floor(Math.random() * notBlueOrRed.length)]
     $(randomItem).addClass("O unclickable")
     $(randomItem).html(playerValue)
-    playGame()
+
+    if (!WinCheck()) {
+        GetTurn()
+    }
 }
 
-function reset() {
-    console.log("reset: resetting game, for new game...")
-    $("#gameInfo").removeClass("hideElement")
-    $("#gameResult, #resultMessage").addClass("hideElement")
-    $(".item").removeClass("X O gray unclickable")
-    $(".item").html("X/O")
-}
-
-function checkForWinner() {
+function WinCheck() {
 
     var winner
     var player1 = 'X'
@@ -143,7 +143,7 @@ function checkForWinner() {
     }
 
     if (draw) {
-        GameResult('draw')
+        gameResult('draw')
         return draw
 
     }
@@ -152,45 +152,33 @@ function checkForWinner() {
 
 function GameResult(result) {
 
-    $("#gameResult, #resultMessage").removeClass("hideElement")
+    $("#gameResult").removeClass("hideElement")
 
     if(result == 'draw'){
 
-        $("#gameResult").html(`<span class='redBig'>Game is a draw.</span>`)
-        $("#resultMessage").html("<span>Game ended in a draw.</span>")
+        $("#gameResult").html(`<span class='green'>Game is a draw.</span>`)
     }
     else{
-        $("#gameResult, #resultMessage").removeClass("hideElement")
-        $("#gameResult").html(`<span class='yellowBig'>${result} wins!</span>`)
-        $("#resultMessage").html("<span class='yellow'>Congratulations! You won!</span>")
+        $("#gameResult").removeClass("hideElement")
+        if(result == 'X'){
+            $("#gameResult").html(`<span class="player1">${result} wins!</span>`)
+        }
+        else if(result == 'O'){
+            $("#gameResult").html(`<span class="player2">${result} wins!</span>`)
+        }
+
 
     }
 
     $("#gameInfo").addClass("hideElement")
-    disableRemainingItems()
+    FinishGame()
 
 }
 
-function disableRemainingItems() {
+function FinishGame() {
 
     var notBlueOrRed = document.querySelectorAll("div.item:not(.X):not(.O)")
-    $(notBlueOrRed).addClass("gray")
-    $(notBlueOrRed).html("¯\\_(ツ)_/¯")
+    $(notBlueOrRed).addClass("empty")
     $(notBlueOrRed).addClass("unclickable")
     return
-}
-
-
-function playGame() {
-
-    console.log('play game!')
-    var winner = checkForWinner()
-    if (!winner) {
-        console.log('no winner yet...')
-        checkWhoseTurn()
-    }
-    if (winner) {
-        console.log('game over, resetting game')
-        //setTimeout(reset, 3000) //call reset after 3 seconds...
-    }
 }
