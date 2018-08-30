@@ -1,10 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>TicTacToe</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
+
 </head>
+
 <body>
 
+<h1 class="center">
+    Tic-Tac-Toe
+</h1>
+
+<h3>
+    <form id="opponentChoice" class="center">
+        <div>
+            Do you wanna play against a Computer or Human?
+            <br><br>
+        </div>
+        <input type="radio" name="radio" value="Computer">Computer
+        <input type="radio" name="radio" value="Human">Human
+    </form>
+</h3>
+
+<h3>
+    <div id="playerOne" class="center"></div>
+</h3>
+
+
+<div id="gameResult" class="center"></div>
+<div id="resultMessage" class="center"></div>
+
+
+<section id="gameInfo" class="gameInfoContainer hideElement">
+
+    <div id="player1" class="playerInfo yellow blackText">Player1</div>
+    <button id="resetButton" class="playerInfo">Reset Game</button>
+    <div id="player2" class="playerInfo">Computer</div>
+
+</section>
+
+
+<div id="counter" class="center hideElement"></div>
+
+<section id="gameBoard" class="gameBoardContainer">
+    <div class="item unclickable" id='one'>X/O</div>
+    <div class="item unclickable" id='two'>X/O</div>
+    <div class="item unclickable" id='three'>X/O</div>
+
+    <div class="item unclickable" id='four'>X/O</div>
+    <div class="item unclickable" id='five'>X/O</div>
+    <div class="item unclickable" id='six'>X/O</div>
+
+    <div class="item unclickable" id='seven'>X/O</div>
+    <div class="item unclickable" id='eight'>X/O</div>
+    <div class="item unclickable" id='nine'>X/O</div>
+</section>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+
+<script  src="js/gameplay.js"></script>
+<script>
+    initClickListners(event)
+</script>
+
+
 </body>
+
 </html>
