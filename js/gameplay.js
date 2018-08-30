@@ -14,7 +14,7 @@ function initClickListners(event) {
 
     })
 
-    $("#opponentChoice input").on("change", function() {
+    $("#opponentChoice input").change(function() {
         var player2 = $("input[name='radio']:checked", "#opponentChoice").val()
         $(".item").removeClass("unclickable")
 
@@ -71,10 +71,8 @@ function Player2Turn() {
     var player2 = $("#player2").text()
     if(player2 == 'Computer'){
 
-        var allItems = document.querySelectorAll("div.item")
-        $(allItems).addClass('unclickable')
-        setTimeout(ComputerPlay, 1000) //call after 1 second...
-
+        $("div.item").addClass('unclickable')
+        setTimeout(ComputerPlay, 1000)
     }
 
     $("#player1").removeClass('green black')
@@ -84,8 +82,8 @@ function Player2Turn() {
 
 function ComputerPlay() {
 
-    var notBlueOrRed = document.querySelectorAll("div.item:not(.X):not(.O)")
-    var randomItem = notBlueOrRed[Math.floor(Math.random() * notBlueOrRed.length)]
+    var unfilledCells = $("div.item:not(.X):not(.O)")
+    var randomItem = unfilledCells[Math.floor(Math.random() * unfilledCells.length)]
     $(randomItem).addClass("O unclickable")
     $(randomItem).html(playerValue)
 
@@ -177,8 +175,6 @@ function GameResult(result) {
 
 function FinishGame() {
 
-    var notBlueOrRed = document.querySelectorAll("div.item:not(.X):not(.O)")
-    $(notBlueOrRed).addClass("empty")
-    $(notBlueOrRed).addClass("unclickable")
-    return
+    $("div.item:not(.X):not(.O)").addClass("empty")
+    $("div.item:not(.X):not(.O)").addClass("unclickable")
 }
