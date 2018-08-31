@@ -18,6 +18,7 @@
             Play Against
         <input type="radio" name="radio" value="Computer"> Computer
         <input type="radio" name="radio" value="Human"> Human
+        <input type="radio" name="radio" value="AI"> AI
         </h3>
     </form>
     <div style="text-align:center;">
@@ -42,17 +43,17 @@
     <div id="counter" class="center hideElement"></div>
 
     <section id="gameBoard" class="gameBoardContainer">
-        <div class="item unclickable" id='one'>X/O</div>
-        <div class="item unclickable" id='two'>X/O</div>
-        <div class="item unclickable" id='three'>X/O</div>
+        <div class="item unclickable" id='0'>X/O</div>
+        <div class="item unclickable" id='1'>X/O</div>
+        <div class="item unclickable" id='2'>X/O</div>
 
-        <div class="item unclickable" id='four'>X/O</div>
-        <div class="item unclickable" id='five'>X/O</div>
-        <div class="item unclickable" id='six'>X/O</div>
+        <div class="item unclickable" id='3'>X/O</div>
+        <div class="item unclickable" id='4'>X/O</div>
+        <div class="item unclickable" id='5'>X/O</div>
 
-        <div class="item unclickable" id='seven'>X/O</div>
-        <div class="item unclickable" id='eight'>X/O</div>
-        <div class="item unclickable" id='nine'>X/O</div>
+        <div class="item unclickable" id='6'>X/O</div>
+        <div class="item unclickable" id='7'>X/O</div>
+        <div class="item unclickable" id='8'>X/O</div>
     </section>
 
 
@@ -61,11 +62,8 @@
 <div>
     <br>
     <br>
-    <br>
-    <br>
 
-
-    <p> This is an interactive Tic Tac Toe game implemented in JavaScript.
+    <p>
         <br>
         Rules of the Game:<br>
         1) The first player always plays for 'X'.<br>
@@ -80,43 +78,42 @@
     <p>
         1) Playing against Computer<br>
         2) Playing against Human.
+        3) Playing against an Advanced AI.<br>
     </p>
 
     <h1>Implementation details</h1>
     <p>
-        1) ticTacToe.html (renamed as index.md for hosting on GitHub pages) - The UI elements such as GameBoard, ResultInfo,
+        1) <b>ticTacToe.html</b> (renamed as index.md for hosting on GitHub pages) - The UI elements such as GameBoard, ResultInfo,
         ResetController are held in place. The GameBoard in made of grid of nine div elements and the class names of the div elements
         are used to manipulate various configrations of the cells. Each of the div in the grid have onClick listener which are defined
         in the JavaScript.<br><br>
 
-        2) js/gameplay.js - The is the meat of the project and has all the logic for game. The initClickListener() method is initlized
+        2) <b>js/gameplay.js</b> - The is the meat of the project and has all the logic for game. The initClickListener() method is initlized
         in the html file as this would initlize all the click listener as soon as the file loads. With every move of the player the
         cell of the grid are made "clickable/unclickable" by dynamically changes the classes of the div tag. This mechanism allows the
         cell in the grid to be click only once.<br><br>
 
         With every move the class of the div that the cell represents is appended by the symbol that it is played for.
-        And with every move the board is checked for the winning configration. The winning configration for a symbol say 'X'
-        is defined as: <br><br>"("#one.X, #two.X, #three.X").length === 3" for the first row, similarly other 8 winning conditions are checked.<br><br>
+        And with every move the board is checked for the winning configration.
 
         The logic for Computer's game play is straight forward. The computer picks randomly for the available cells in the grid.<br><br>
 
-        3) css/stylesheet.css - This file is used for styling various elements of the application.<br><br>
+        3) <b>js/AI.js</b> - The logic for AI is using MinMax Algorithm with Alpha-Beta pruning. I have used following resources for my reference:<br>
+        <br><a href="https://mostafa-samir.github.io/Tic-Tac-Toe-AI">https://mostafa-samir.github.io/Tic-Tac-Toe-AI/</a>
+        <br><a href="https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-4-alpha-beta-pruning/"> https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-4-alpha-beta-pruning/</a><br><br>
+
+
+        3) <b>css/stylesheet.css</b> - This file is used for styling various elements of the application.<br><br>
 
     <p>
 
     </p>
 
-</div>
-
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
-
+<script  src="js/AI.js"></script>
 <script  src="js/gameplay.js"></script>
 <script>
     initClickListners(event)
 </script>
 
-
-</body>
-
-</html>

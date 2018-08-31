@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84dc4a91-d868-49b6-9ad4-c37d5075d6c4" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/ticTacToe.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/js/AI.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/index.md" afterPath="$PROJECT_DIR$/index.md" />
+      <change beforePath="$PROJECT_DIR$/js/gameplay.js" afterPath="$PROJECT_DIR$/js/gameplay.js" />
+      <change beforePath="$PROJECT_DIR$/ticTacToe.html" afterPath="$PROJECT_DIR$/ticTacToe.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,8 +34,8 @@
       <file leaf-file-name="index.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="56" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -41,8 +44,8 @@
       <file leaf-file-name="ticTacToe.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ticTacToe.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1050">
-              <caret line="70" column="7" lean-forward="false" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
+            <state relative-caret-position="642">
+              <caret line="56" column="14" lean-forward="false" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -51,12 +54,12 @@
       <file leaf-file-name="gameplay.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/gameplay.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="101" column="58" lean-forward="true" selection-start-line="101" selection-start-column="17" selection-end-line="101" selection-end-column="58" />
+            <state relative-caret-position="150">
+              <caret line="124" column="24" lean-forward="false" selection-start-line="124" selection-start-column="24" selection-end-line="124" selection-end-column="24" />
               <folding>
                 <element signature="n#!!block;n#initClickListners#0" expanded="false" />
-                <element signature="e#98#292#0" expanded="false" />
-                <element signature="e#678#1098#0" expanded="false" />
+                <element signature="e#687#1134#0" expanded="false" />
+                <element signature="e#1181#1653#0" expanded="false" />
                 <element signature="n#!!block;n#GetTurn#0" expanded="false" />
                 <element signature="n#!!block;n#Player2Turn#0" expanded="false" />
                 <element signature="n#!!block;n#ComputerPlay#0" expanded="false" />
@@ -67,14 +70,31 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="AI.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/AI.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="55" column="17" lean-forward="true" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+              <folding>
+                <element signature="n#!!block;n#aiTurn#0" expanded="false" />
+                <element signature="e#296#321#0" expanded="false" />
+                <element signature="n#!!block;n#unMarkedCells#0" expanded="false" />
+                <element signature="n#!!block;n#winCheckBoard#0" expanded="false" />
+                <element signature="n#!!block;n#checkForDraw#0" expanded="false" />
+                <element signature="n#!!block;n#alternatePlayer#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -87,6 +107,12 @@
       <find>yello</find>
       <find>gameResult</find>
       <find>Game</find>
+      <find>letter</find>
+      <find>aiMove</find>
+      <find>WinCheck</find>
+      <find>board</find>
+      <find>winCheckBoard</find>
+      <find>green</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -95,9 +121,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/gameplay.js" />
         <option value="$PROJECT_DIR$/css/stylesheet.css" />
         <option value="$PROJECT_DIR$/index.md" />
+        <option value="$PROJECT_DIR$/js/AI.js" />
+        <option value="$PROJECT_DIR$/js/gameplay.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/ticTacToe.html" />
       </list>
@@ -205,17 +232,18 @@
       <option name="presentableId" value="Default" />
       <updated>1535596583169</updated>
       <workItem from="1535596584718" duration="2159000" />
-      <workItem from="1535664221746" duration="11387000" />
+      <workItem from="1535664221746" duration="21868000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13546000" />
+    <option name="totallyTimeSpent" value="24027000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="22" width="1384" height="814" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24944974" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24944974" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -264,7 +292,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -283,8 +311,8 @@
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
             <element signature="n#!!block;n#initClickListners#0" expanded="false" />
-            <element signature="e#98#292#0" expanded="false" />
-            <element signature="e#678#1098#0" expanded="false" />
+            <element signature="e#687#1134#0" expanded="false" />
+            <element signature="e#1181#1653#0" expanded="false" />
             <element signature="n#!!block;n#GetTurn#0" expanded="false" />
             <element signature="n#!!block;n#Player2Turn#0" expanded="false" />
             <element signature="n#!!block;n#ComputerPlay#0" expanded="false" />
@@ -330,14 +358,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/AI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="55" column="17" lean-forward="true" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+          <folding>
+            <element signature="n#!!block;n#aiTurn#0" expanded="false" />
+            <element signature="e#296#321#0" expanded="false" />
+            <element signature="n#!!block;n#unMarkedCells#0" expanded="false" />
+            <element signature="n#!!block;n#winCheckBoard#0" expanded="false" />
+            <element signature="n#!!block;n#checkForDraw#0" expanded="false" />
+            <element signature="n#!!block;n#alternatePlayer#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/gameplay.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="101" column="58" lean-forward="true" selection-start-line="101" selection-start-column="17" selection-end-line="101" selection-end-column="58" />
+        <state relative-caret-position="150">
+          <caret line="124" column="24" lean-forward="false" selection-start-line="124" selection-start-column="24" selection-end-line="124" selection-end-column="24" />
           <folding>
             <element signature="n#!!block;n#initClickListners#0" expanded="false" />
-            <element signature="e#98#292#0" expanded="false" />
-            <element signature="e#678#1098#0" expanded="false" />
+            <element signature="e#687#1134#0" expanded="false" />
+            <element signature="e#1181#1653#0" expanded="false" />
             <element signature="n#!!block;n#GetTurn#0" expanded="false" />
             <element signature="n#!!block;n#Player2Turn#0" expanded="false" />
             <element signature="n#!!block;n#ComputerPlay#0" expanded="false" />
@@ -349,16 +392,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ticTacToe.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="70" column="7" lean-forward="false" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
+        <state relative-caret-position="642">
+          <caret line="56" column="14" lean-forward="false" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="56" selection-end-column="14" />
           <folding />
         </state>
       </provider>

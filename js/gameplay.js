@@ -1,15 +1,28 @@
 var playerValue = 'X'
 
+var board
+
 function initClickListners(event) {
 
     $(".item").click(function (event) {
 
+        var cell_id = parseInt($(this).attr('id'))
+
         $(this).addClass(playerValue)
         $(this).html(playerValue)
+        $(this).addClass('unclickable')
         $("#opponentChoice").addClass('unclickable')
 
-        if (!WinCheck()) {
+        board[cell_id] = playerValue
+
+        if (!winCheckBoard(board) && !checkForDraw(board)) {
             GetTurn()
+        }
+        else if (checkForDraw(board)) {
+            GameResult('draw')
+        }
+        else if (winCheckBoard(board)) {
+            GameResult(playerValue)
         }
 
     })
@@ -17,16 +30,22 @@ function initClickListners(event) {
     $("#opponentChoice input").change(function() {
         var player2 = $("input[name='radio']:checked", "#opponentChoice").val()
         $(".item").removeClass("unclickable")
+        board = new Array(9).join(".").split(".");
 
         if (player2 == "Human"){
             $("#player2").html("Player 2")
         }
-        else{
+        else if (player2 == 'Computer'){
             $("#player2").html("Computer")
+        }
+        else if (player2 == 'AI'){
+            $("#player2").html("AI")
         }
     })
 
     $("#resetButton").click(function(event) {
+
+        board = new Array(9).join(".").split(".");
 
         $("#opponentChoice").removeClass('unclickable')
         document.getElementById("opponentChoice").reset()
@@ -59,8 +78,9 @@ function GetTurn() {
     }
 
     else if (player2Turn) {
-
         playerValue = 'O'
+        $("#player1").removeClass('green black')
+        $("#player2").addClass('green black')
         Player2Turn()
 
     }
@@ -69,14 +89,36 @@ function GetTurn() {
 function Player2Turn() {
 
     var player2 = $("#player2").text()
+
     if(player2 == 'Computer'){
 
         $("div.item").addClass('unclickable')
         setTimeout(ComputerPlay, 1000)
+
+
     }
 
-    $("#player1").removeClass('green black')
-    $("#player2").addClass('green black')
+    if (player2 == 'AI'){
+
+        aiTurn('AI', board, undefined, Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY)
+        console.log("aiVal"+aiMove)
+        board[aiMove] = 'O'
+        $("#"+aiMove).addClass("O unclickable")
+        $("#"+aiMove).html(playerValue)
+
+        if (!winCheckBoard(board) && !checkForDraw(board)) {
+            GetTurn()
+        }
+
+    }
+
+    if(checkForDraw(board)){
+        GameResult('draw')
+    }
+
+    else if(winCheckBoard(board)){
+        GameResult(playerValue)
+    }
 
 }
 
@@ -84,68 +126,21 @@ function ComputerPlay() {
 
     var unfilledCells = $("div.item:not(.X):not(.O)")
     var randomItem = unfilledCells[Math.floor(Math.random() * unfilledCells.length)]
+    board[""+$(randomItem).attr('id')] = 'O'
     $(randomItem).addClass("O unclickable")
     $(randomItem).html(playerValue)
 
-    if (!WinCheck()) {
+    if (!winCheckBoard(board) && !checkForDraw(board)) {
         GetTurn()
     }
-}
 
-function WinCheck() {
-
-    var winner
-    var player1 = 'X'
-    var player2 = "O"
-
-
-    var xWin1 = $("#one.X, #two.X, #three.X").length === 3
-    var xWin2 = $("#four.X, #five.X, #six.X").length === 3
-    var xWin3 = $("#seven.X, #eight.X, #nine.X").length === 3
-    var xWin4 = $("#one.X, #four.X, #seven.X").length === 3
-    var xWin5 = $("#two.X, #five.X, #eight.X").length === 3
-    var xWin6 = $("#three.X, #six.X, #nine.X").length === 3
-    var xWin7 = $("#one.X, #five.X, #nine.X").length === 3
-    var xWin8 = $("#seven.X, #five.X, #three.X").length === 3
-
-    var oWin1 = $("#one.O, #two.O, #three.O").length === 3
-    var oWin2 = $("#four.O, #five.O, #six.O").length === 3
-    var oWin3 = $("#seven.O, #eight.O, #nine.O").length === 3
-    var oWin4 = $("#one.O, #four.O, #seven.O").length === 3
-    var oWin5 = $("#two.O, #five.O, #eight.O").length === 3
-    var oWin6 = $("#three.O, #six.O, #nine.O").length === 3
-    var oWin7 = $("#one.O, #five.O, #nine.O").length === 3
-    var oWin8 = $("#seven.O, #five.O, #three.O").length === 3
-
-    var xWins = (xWin1 || xWin2 || xWin3 || xWin4 || xWin5 || xWin6 || xWin7 || xWin8)
-
-    var oWins = (oWin1 || oWin2 || oWin3 || oWin4 || oWin5 || oWin6 || oWin7 || oWin8)
-
-    var oCount = $('#gameBoard .O').length
-    var xCount = $('#gameBoard .X').length
-
-    var totalMoves = oCount + xCount
-
-
-    var draw = (totalMoves === 9) && (!xWins) && (!oWins)
-
-    if (xWins) {
-        GameResult(player1)
-        return xWins
+    else if(checkForDraw(board)){
+        GameResult('draw')
     }
 
-    if (oWins) {
-        GameResult(player2)
-        return oWins
-
+    else if(winCheckBoard(board)){
+        GameResult(playerValue)
     }
-
-    if (draw) {
-        gameResult('draw')
-        return draw
-
-    }
-
 }
 
 function GameResult(result) {

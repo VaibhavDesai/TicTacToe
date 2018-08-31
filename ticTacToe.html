@@ -18,6 +18,7 @@
         Play Against
         <input type="radio" name="radio" value="Computer"> Computer
         <input type="radio" name="radio" value="Human"> Human
+        <input type="radio" name="radio" value="AI"> AI
     </h3>
 </form>
 <div style="text-align:center;">
@@ -42,24 +43,24 @@
     <div id="counter" class="center hideElement"></div>
 
     <section id="gameBoard" class="gameBoardContainer">
-        <div class="item unclickable" id='one'>X/O</div>
-        <div class="item unclickable" id='two'>X/O</div>
-        <div class="item unclickable" id='three'>X/O</div>
+        <div class="item unclickable" id='0'>X/O</div>
+        <div class="item unclickable" id='1'>X/O</div>
+        <div class="item unclickable" id='2'>X/O</div>
 
-        <div class="item unclickable" id='four'>X/O</div>
-        <div class="item unclickable" id='five'>X/O</div>
-        <div class="item unclickable" id='six'>X/O</div>
+        <div class="item unclickable" id='3'>X/O</div>
+        <div class="item unclickable" id='4'>X/O</div>
+        <div class="item unclickable" id='5'>X/O</div>
 
-        <div class="item unclickable" id='seven'>X/O</div>
-        <div class="item unclickable" id='eight'>X/O</div>
-        <div class="item unclickable" id='nine'>X/O</div>
+        <div class="item unclickable" id='6'>X/O</div>
+        <div class="item unclickable" id='7'>X/O</div>
+        <div class="item unclickable" id='8'>X/O</div>
     </section>
 
 
 </div>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
-
+<script  src="js/AI.js"></script>
 <script  src="js/gameplay.js"></script>
 <script>
     initClickListners(event)
