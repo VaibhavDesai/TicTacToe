@@ -98,8 +98,7 @@
 
         The logic for Computer's game play is straight forward. The computer picks randomly for the available cells in the grid.<br><br>
 
-        3) <b>js/AI.js</b> - The logic for AI is using MinMax Algorithm with Alpha-Beta pruning. I have used following resources for my reference:<br>
-        <br><a href="https://mostafa-samir.github.io/Tic-Tac-Toe-AI">https://mostafa-samir.github.io/Tic-Tac-Toe-AI/</a>
+        3) <b>js/AI.js</b> - The logic for AI is using MinMax Algorithm with Alpha-Beta pruning. I have used following resource for my reference:<br>
         <br><a href="https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-4-alpha-beta-pruning/"> https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-4-alpha-beta-pruning/</a><br><br>
 
 
