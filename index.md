@@ -77,7 +77,7 @@
     <h1>Features implemented</h1>
     <p>
         1) Playing against Computer<br>
-        2) Playing against Human.
+        2) Playing against Human.<br>
         3) Playing against an Advanced AI.<br>
     </p>
 
