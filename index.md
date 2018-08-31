@@ -58,6 +58,10 @@
 
 </div>
 
+<div>
+    <p> This is the discription of the project</p>
+    
+</div>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
