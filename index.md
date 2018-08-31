@@ -59,8 +59,52 @@
 </div>
 
 <div>
-    <p> This is the discription of the project</p>
-    
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+
+    <p> This is an interactive Tic Tac Toe game implemented in JavaScript.
+
+        Rules of the Game:
+        1) The first player always plays for 'X'.
+        2) The second player (Computer or Human) always plays for 'O'
+        3) If first player and second player play alternatively on 3x3 grid.
+        4) The player who has 3 consecative cells symbols (either 'X' or 'O') in a row, column, or diagonal wins the match,
+        else the match is declared draw.
+
+    </p>
+
+    <h1>Features implemented</h1>
+    <p>
+        1) Playing against Computer
+        2) Playing against Human.
+    </p>
+
+    <h1>Implementation details</h1>
+    <p>
+        1) index.html (renamed as index.md for hosting on GitHub pages) - The UI elements such as GameBoard, ResultInfo,
+        ResetController are held in place. The GameBoard in made of grid of nine div elements and the class names of the div elements
+        are used to manipulate various configrations of the cells. Each of the div in the grid have onClick listener which are defined
+        in the JavaScript.
+
+        2) js/gameplay.js - The is the meat of the project and has all the logic for game. The initClickListener() method is initlized
+        in the html file as this would initlize all the click listener as soon as the file loads. With every move of the player the
+        cell of the grid are made "clickable/unclickable" by dynamically changes the classes of the div tag. This mechanism allows the
+        cell in the grid to be click only once.
+
+        With every move the class of the div that the cell represents is appended by the symbol that it is played for.
+        And with every move the board is checked for the winning configration. The winning configration for a symbol say 'X'
+        is defined as: "("#one.X, #two.X, #three.X").length === 3" for the first row, similarly other 8 winning conditions are checked.
+
+        The logic for Computer's game play is straight forward. The computer picks randomly for the available cells in the grid.
+
+        3) css/stylesheet.css - This file is used for styling various elements of the application.
+
+    <p>
+
+    </p>
+
 </div>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
